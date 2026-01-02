@@ -25,4 +25,4 @@ python main.py <command> [options]
 
 ## Project Constitution
 
-This project adheres to the principles outlined in its [Constitution](.specify/memory/constitution.md).
+This project adheres to the principles outlined in its [Constitution](.specify/memory/constitution.md).# hackthon-2-zaryab-
