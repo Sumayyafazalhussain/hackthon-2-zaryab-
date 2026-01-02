@@ -1,12 +1,11 @@
-# Console App
+# Todo CLI App
 
-A console-based application built with Python.
+A console-based application for managing a todo list and performing file operations, built with Python.
 
 ## Features
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
+- [x] File Operations (read, write, delete)
+- [ ] Todo List Management (add, list, complete, delete)
 
 ## Installation
 
@@ -16,10 +15,14 @@ pip install -r requirements.txt
 
 ## Usage
 
+The application uses subcommands for different functionalities.
+
+For file operations, refer to the [quickstart guide](specs/file-operations/quickstart.md).
+
 ```bash
-python main.py [command] [options]
+python main.py <command> [options]
 ```
 
-## Implemented Commands
-- `my-command`: A simple test command.
-- `Here is my message`: A test command with a string argument.
+## Project Constitution
+
+This project adheres to the principles outlined in its [Constitution](.specify/memory/constitution.md).

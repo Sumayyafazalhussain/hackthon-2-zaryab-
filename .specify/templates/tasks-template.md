@@ -249,3 +249,6 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+- Every task must have a unique ID.
+- The app must handle invalid input gracefully.
+- Clear user prompts and outputs are required.
