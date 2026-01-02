@@ -31,15 +31,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- **I. Console-Based CLI:** The application must run in the terminal and expose a clear, consistent command-line interface.
-- **II. Standard I/O:** The application must use standard input, output, and error streams.
-- **III. Test-Driven Development (TDD):** All new features must be accompanied by tests, following the Red-Green-Refactor cycle.
-- **IV. Graceful Error Handling:** The application must handle invalid input gracefully, providing clear and informative messages.
-- **V. Clean, Readable, and Modular Code:** Code must be clean, readable, modular, and follow the single-responsibility principle.
-- **VI. Single Responsibility Principle:** Each component should have one and only one reason to change.
-- **VII. Python Standard Library Only:** No external libraries except Python standard library will be used.
-- **VIII. Unique Task IDs:** Every task must have a unique ID.
-- **IX. Clear User Prompts and Outputs:** Clear user prompts and outputs are required.
+**Constitution Compliance Verification:**
+- [ ] Technology stack: Python 3.13+ only
+- [ ] No database or file persistence
+- [ ] Console-based application only
+- [ ] In-memory storage (Python list)
+- [ ] No authentication required
+- [ ] No web interfaces
+- [ ] CLI enforcement: menu-driven, no flags/args
+- [ ] Spec-Driven Development compliance
+- [ ] Claude Code writes all source code
+- [ ] Functional boundaries respected
 
 ## Project Structure
 

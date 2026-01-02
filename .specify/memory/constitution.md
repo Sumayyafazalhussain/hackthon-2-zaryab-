@@ -1,83 +1,111 @@
-<!--
-Sync Impact Report:
-Version change: 1.0.0 -> 2.0.0
-List of modified principles:
-  - I. Clear Command-Line Interface (CLI) -> I. Console-Based CLI
-  - II. Standard I/O -> II. Standard I/O (Remains)
-  - III. Test-Driven Development (TDD) -> III. Test-Driven Development (TDD) (Remains)
-  - IV. Graceful Error Handling -> IV. Graceful Error Handling (Remains)
-  - V. Simplicity -> V. Clean, Readable, and Modular Code
-  - New Principles: VI. Single Responsibility Principle, VII. Python Standard Library Only, VIII. Unique Task IDs, IX. Clear User Prompts and Outputs, X. Beginner-Friendly Code, XI. Small and Clear Functions, XII. Easy-to-Understand Output
-Added sections: Non-Goals, Quality Bar
-Removed sections: None
-Templates requiring updates:
-  - .specify/templates/plan-template.md: ✅ updated
-  - .specify/templates/spec-template.md: ✅ updated
-  - .specify/templates/tasks-template.md: ✅ updated
-  - .specify/templates/commands/sp.adr.toml: ✅ updated
-  - .specify/templates/commands/sp.analyze.toml: ✅ updated
-  - .specify/templates/commands/sp.checklist.toml: ✅ updated
-  - .specify/templates/commands/sp.clarify.toml: ✅ updated
-  - .specify/templates/commands/sp.constitution.toml: ✅ updated
-  - .specify/templates/commands/sp.git.commit_pr.toml: ✅ updated
-  - .specify/templates/commands/sp.implement.toml: ✅ updated
-  - .specify/templates/commands/sp.phr.toml: ✅ updated
-  - .specify/templates/commands/sp.plan.toml: ✅ updated
-  - .specify/templates/commands/sp.reverse-engineer.toml: ✅ updated
-  - .specify/templates/commands/sp.specify.toml: ✅ updated
-  - .specify/templates/commands/sp.tasks.toml: ✅ updated
-  - .specify/templates/commands/sp.taskstoissues.toml: ✅ updated
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: Core Principles, Scope Lock, Technology Constraints, Development Rules, Functional Boundaries, CLI Enforcement
+Removed sections: N/A
+Templates requiring updates: 
+- .specify/templates/plan-template.md ✅ updated
+- .specify/templates/spec-template.md ✅ updated  
+- .specify/templates/tasks-template.md ✅ updated
+- .specify/templates/commands/*.md ✅ reviewed
+- README.md ⚠ pending
 Follow-up TODOs: None
 -->
-# Todo CLI App Constitution
 
-## Purpose
-Build a simple in-memory Todo application using Python CLI following Spec-Driven Development.
+# Todo In-Memory Console App Constitution
 
 ## Core Principles
 
-### I. Console-Based CLI
-The application must run in the terminal (console-based). Every feature will be exposed through a clear and consistent command-line interface. Commands, arguments, and flags should be intuitive and well-documented.
+### I. Spec-Driven Development
+This project MUST follow Spec-Driven Development using Spec-Kit Plus and Claude Code. No source code will be written manually by the developer.
 
-### II. Standard I/O
-The application will use standard input (stdin) for input and standard output (stdout) for output. Errors and logging information will be directed to standard error (stderr). This ensures compatibility with other command-line tools.
+### II. Scope Lock
+This constitution applies ONLY to:
+- Phase I: In-Memory Python Console Application
 
-### III. Test-Driven Development (TDD)
-All new features must be accompanied by tests. The Red-Green-Refactor cycle is to be followed to ensure code quality and maintainability.
+The following are STRICTLY OUT OF SCOPE:
+- Web
+- Database
+- Authentication
+- AI / Chatbot
+- Kubernetes
+- Cloud
 
-### IV. Graceful Error Handling
-The application must handle invalid input gracefully, providing clear and informative messages to the user. Exit codes should be used to indicate the success or failure of a command.
+### III. Technology Constraints
+- Python 3.13+
+- Console-based application only
+- In-memory storage (no files, no database)
+- Standard Python libraries only
 
-### V. Clean, Readable, and Modular Code
-Code must be clean, readable, and modular, following the single-responsibility principle.
+### IV. Development Rules
+1. All features MUST originate from specs.
+2. Claude Code is the ONLY entity allowed to write or modify code.
+3. Developer may ONLY:
+   - Refine specifications
+   - Review generated code
+   - Run the application
+4. Clean architecture and readable structure are mandatory.
+5. Each task MUST have a unique ID generated in memory.
 
-### VI. Single Responsibility Principle
-Each component (function, class) should have one and only one reason to change.
+### V. Functional Boundaries
+The application MUST support ONLY:
+- Add Task
+- View Tasks
+- Update Task
+- Delete Task
+- Mark Task as Complete / Incomplete
+- Assign Priority
+- Assign Category
+- Filter Tasks by Priority or Category
 
-### VII. Python Standard Library Only
-No external libraries except Python standard library will be used.
+❌ No databases  
+❌ No file saving  
+❌ No authentication  
+❌ No advanced tagging systems  
+❌ No date-based sorting  
 
-### VIII. Unique Task IDs
-Every task must have a unique ID.
+### VI. CLI Enforcement
+- No command-line flags or arguments
+- Fully menu-driven interaction
+- Application MUST run in an infinite loop
+- Program exits ONLY when user selects "Exit"
 
-### IX. Clear User Prompts and Outputs
-Clear user prompts and outputs are required to ensure ease of use.
+## Data Model Constraints
+- Task ID: integer (auto-increment, unique)
+- Task Title: string (required)
+- Task Description: string (optional)
+- Task Completed: boolean (default: false)
+- Task Priority: string (Low | Medium | High)
+- Task Category: string (default: "General")
+- All tasks stored in a Python list during runtime only
 
-## Development Rules
-- Do not add features outside the specification.
+## Global CLI Rules
+- No flags or arguments
+- Menu MUST reappear after every action
+- User MUST explicitly choose Exit to terminate
+- Invalid input must NOT crash the application
 
-## Non-Goals
-- No GUI
-- No web framework
-- No database
-- No authentication
+## Error Handling Requirements
+- Invalid menu choice shows error and re-displays menu
+- Invalid task ID shows clear message
+- Invalid priority input re-prompts user
 
-## Quality Bar
-- Code must be beginner-friendly.
-- Functions must be small and clear.
-- Output must be easy to understand.
+## Exit Behavior
+- Exit option terminates loop gracefully
+- Display goodbye message
+
+## Non-Goals (Strictly Forbidden)
+- File persistence
+- Databases
+- Authentication
+- Web interfaces
+- Advanced tagging
+- Date/time sorting
 
 ## Governance
-This constitution is the supreme governing document of this project. Any changes to this constitution must be proposed as a pull request and approved by the project maintainers.
+This constitution supersedes all other development practices. Amendments require documentation and approval. All pull requests and code reviews must verify compliance with these principles. The constitution version must be updated according to semantic versioning rules:
+- MAJOR: Backward incompatible governance/principle removals or redefinitions
+- MINOR: New principle/section added or materially expanded guidance
+- PATCH: Clarifications, wording, typo fixes, non-semantic refinements
 
-**Version**: 2.0.0 | **Ratified**: 2026-01-02 | **Last Amended**: 2026-01-02
+**Version**: 1.0.0 | **Ratified**: 2026-01-02 | **Last Amended**: 2026-01-02

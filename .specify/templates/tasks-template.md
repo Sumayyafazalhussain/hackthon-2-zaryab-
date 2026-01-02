@@ -49,8 +49,10 @@ description: "Task list template for feature implementation"
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
+- [ ] T002 Initialize Python 3.13+ project with standard library dependencies only
 - [ ] T003 [P] Configure linting and formatting tools
+- [ ] T004 Ensure no database or file persistence dependencies are added
+- [ ] T005 Set up in-memory storage mechanism (Python list for tasks)
 
 ---
 
@@ -62,12 +64,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T006 [P] Create base Task model with id, title, description, completed, priority, category in src/models/task.py
+- [ ] T007 [P] Implement in-memory task storage mechanism using Python list
+- [ ] T008 Configure error handling and input validation infrastructure
+- [ ] T009 Setup CLI menu system structure without command-line arguments
+- [ ] T010 Create task management service with add, view, update, delete, mark complete/incomplete functionality
+- [ ] T011 Implement filtering functionality by priority and category
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -156,6 +158,11 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX Verify no database or file persistence code was added
+- [ ] TXXX Confirm CLI is menu-driven with no command-line flags/args
+- [ ] TXXX Validate all functionality works without authentication
+- [ ] TXXX Ensure no web interfaces were implemented
+- [ ] TXXX Confirm no advanced tagging systems were added
 
 ---
 
@@ -249,6 +256,3 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
-- Every task must have a unique ID.
-- The app must handle invalid input gracefully.
-- Clear user prompts and outputs are required.

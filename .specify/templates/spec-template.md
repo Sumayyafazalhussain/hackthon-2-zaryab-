@@ -84,21 +84,29 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST be a Python 3.13+ console application
+- **FR-002**: System MUST store all data in-memory only (no file/database persistence)
+- **FR-003**: System MUST provide menu-driven CLI interface (no command-line flags/args)
+- **FR-004**: System MUST support adding tasks with title, description, priority, and category
+- **FR-005**: System MUST support viewing all tasks with status, priority, and category
+- **FR-006**: System MUST support updating existing tasks
+- **FR-007**: System MUST support deleting tasks
+- **FR-008**: System MUST support marking tasks as complete/incomplete
+- **FR-009**: System MUST support filtering tasks by priority or category
+- **FR-010**: System MUST assign unique auto-incrementing IDs to tasks
+- **FR-011**: System MUST NOT include authentication or user accounts
+- **FR-012**: System MUST NOT persist data to files or databases
+- **FR-013**: System MUST NOT include web interfaces
+- **FR-014**: System MUST NOT include advanced tagging systems
+- **FR-015**: System MUST NOT include date/time sorting
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-016**: System MUST handle invalid input without crashing [SPECIFIED: re-prompt user]
 
 ### Key Entities *(include if feature involves data)*
 
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
+- **Task**: Represents a single todo item with id (integer, auto-increment), title (string, required), description (string, optional), completed (boolean, default false), priority (string: Low/Medium/High), category (string, default "General")
 
 ## Success Criteria *(mandatory)*
 
