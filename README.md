@@ -19,3 +19,7 @@ pip install -r requirements.txt
 ```bash
 python main.py [command] [options]
 ```
+
+## Implemented Commands
+- `my-command`: A simple test command.
+- `Here is my message`: A test command with a string argument.
